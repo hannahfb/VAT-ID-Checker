@@ -1,0 +1,57 @@
+<%- include("partials/header") %>
+
+    <div class="container con-main col-xl-10 col-xxl-8 px-4">
+        <!-- Left box -->
+        <div class="row g-lg-5 py-5">
+            <div class="col-lg-6 text-center text-lg-start">
+                <h1 class="display-4 fw-bold lh-1 text-body-emphasis mb-3">Search a VAT ID</h1>
+                <p class="col-lg-10 fs-5">Enter your VAT ID to the right. </p>
+                <p class="col-lg-10 fs-5">Remember, this is only available for state
+                    members of the European Union and the United Kingdom.</p>
+            </div>
+            <!-- Right box -->
+            <div class="col-md-10 border rounded-3 bg-body-tertiary mx-auto col-lg-6">
+                <div class="p-4 pb-0">
+                    <%# First check if possible to connect to database %>
+                    <% if(locals.content && locals.content.database==="failure" ) { %>
+                        <p>Unable to connect to database and process the request.</p>
+                        <%# Check if user has input a VAT ID search to display %>
+                        <% } else if(locals.content && locals.content.database==="ok" ) { %>
+                            <p><b>VAT ID: </b>
+                                <%= content.query %>
+                            </p>
+                            <p><b>Valid: </b>
+                                <%# Statement below shows a green tick when true/ valid, otherwise red cross %>
+                                <% if(locals.content.valid) { %>
+                                    <img src="/images/check-round-fill.svg" alt="green tick" height="30">
+                                    <% } else { %>
+                                        <img src="/images/cross-circle.svg" alt="red cross" height="30">
+                                        <% } %>
+                                            <p><b>Country Code: </b>
+                                                <%= content.country_code %>
+                                            </p>
+                                            <p><b>Company name: </b>
+                                                <%= content.company_name || "NA" %>
+                                            </p>
+                                            <p><b>Address: </b>
+                                                <%= content.company_address || "NA" %>
+                                            </p>
+
+                </div>
+                <% } %>
+                    <form class="p-4" action="/check-vat" method="post">
+                        <div>
+                            <input type="text" class="form-control" id="vatId" name="vatId"
+                                placeholder="Enter your VAT ID here">
+                            <label for="vatId"></label>
+                        </div>
+                        <button type="submit" class="w-100 btn btn-lg btn-primary">Click to validate</button>
+                    </form>
+
+            </div>
+        </div>
+    </div>
+
+    </body>
+
+    </html>

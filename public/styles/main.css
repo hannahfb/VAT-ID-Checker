@@ -1,0 +1,30 @@
+/* Most styles are done via Bootstrap templates however some
+elements have their custom classes and styles in order to keep
+lines with classes from getting too long */
+
+/* Font styles */
+.header-1, .help-questions {
+    font-weight: 700;
+}
+
+.header-2 {
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* Content/ Search page styles */
+.con-main {
+    min-height: 85vh;
+    align-content: center;
+    background-image: url("/images/europe.svg");
+}
+
+#vatId {
+   padding-top: 1rem;
+   padding-bottom: 1rem; 
+}
+
+/* Help Page Gradient */
+.help {
+  background: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0));
+}
