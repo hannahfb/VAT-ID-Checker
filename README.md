@@ -14,20 +14,25 @@ A simple Node.js + Express application with EJS templating that validates Europe
    cd VAT-ID-Checker
 
 2. Install dependencies
-    npm install
+   ```bash
+    npm i
 
-3. Get your own VATLayer API access key:
+4. Get your own VATLayer API access key:
     - Create a free account at https://vatlayer.com/.
     - Access your dashboard or the documentation page (https://vatlayer.com/documentation) to see your API key.
 
-4. Create an .env file in project root and add your own API Key.
-    API_KEY=your_api_key_here
+5. Create an .env file in project root and add your own API Key.
+   ```env
+   API_KEY=your_api_key_here
 
-5. Start server:
-    node index.js
-
-    or if using nodemon:  
-    npx nodemon index.js
+7. Start server:
+   ```bash
+   node index.js
+   ```
+   or if using nodemon:
+   ```bash 
+   npx nodemon index.js
+   ```
 
 ## Usage
 1. Open your browser and go to:
